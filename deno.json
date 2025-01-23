@@ -1,0 +1,14 @@
+{
+  "name": "@hilmarch/logger",
+  "version": "0.0.3",
+  "license": "MIT",
+
+  "exports": "./src/main.ts",
+  "tasks": {
+    "dev": "deno run -A --env-file --watch src/main.ts"
+  },
+  "publish": {
+    "include": ["src/**", "deno.json", "README.md"],
+    "exclude": ["test/**", "**/*.test.ts", "node_modules/**"]
+  }
+}
