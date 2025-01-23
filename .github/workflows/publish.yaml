@@ -1,0 +1,30 @@
+# .github/workflows/publish.yml
+name: Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Install Deno
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: latest
+      
+      # Verify Deno installation
+      - run: deno --version
+      
+      # Install JSR
+      - run: deno install --allow-all
+      
+      # Publish to JSR with flag --allow-dirty
+      - run: deno publish --allow-dirty
