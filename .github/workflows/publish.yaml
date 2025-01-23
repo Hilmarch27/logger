@@ -24,7 +24,7 @@ jobs:
       - run: deno --version
       
       # Install JSR
-      - run: deno install --allow-all
+      - run: deno install
       
       # Publish to JSR with flag --allow-dirty
       - run: deno publish --allow-dirty
